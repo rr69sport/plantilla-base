@@ -1,15 +1,11 @@
 # Plantilla base
 
-## Transpilar Javascript
+Una plantilla de HTML, CSS y JavaScript básica para proyectos de páginas estáticas.
 
-**`gulp-babel`**
-El módulo que usará **gulp** para convertir en código ES6 en adelante a ES5.
-`npm install --save-dev gulp-babel`
+Usa Gulp en su versión 4 para ejecutar las tareas.
 
-**`gulp-terser`**
-La nueva versión de **uglify**, sirve para ofuscar el código
-`npm install --save-dev gulp-terser`
+Transpila el HTML, el CSS y el JavaScript para que sea posible trabajar en una carpeta de desarrollo y otra carpeta con todos los archivos minificados y concatenados para subir a producción.
 
-**`gulp-concat`**
-Une todos nuestros archivos JS en uno solo
-`npm install --save-dev gulp-concat`
+También optimiza imágenes JPG, JPEG, GIF, PNG y SVG
+
+Utiliza Browser Sync para levantar un servidor de desarrollo en tiempo real.
