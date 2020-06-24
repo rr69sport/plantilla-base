@@ -1,0 +1,34 @@
+{
+	"name": "plantilla-base",
+	"version": "1.0.0",
+	"description": "plantilla básica para transpilar HTML, CSS y JavaScript usando Gulp 4",
+	"main": "src/index.html",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ramsua/plantilla-base.git"
+	},
+	"author": "RAMSUA",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ramsua/plantilla-base/issues"
+	},
+	"homepage": "https://github.com/ramsua/plantilla-base#readme",
+	"browserslist": [
+		"defaults",
+		"not IE 11",
+		"not IE_Mob 11",
+		"maintained node versions"
+	],
+	"devDependencies": {
+		"@babel/core": "^7.10.3",
+		"@babel/preset-env": "^7.10.3",
+		"@babel/register": "^7.10.3",
+		"gulp": "^4.0.2",
+		"gulp-babel": "^8.0.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-terser": "^1.2.0"
+	}
+}
