@@ -9,3 +9,13 @@ Transpila el HTML, el CSS y el JavaScript para que sea posible trabajar en una c
 También optimiza imágenes JPG, JPEG, GIF, PNG y SVG
 
 Utiliza Browser Sync para levantar un servidor de desarrollo en tiempo real.
+
+***
+
+## Cómo usarlo
+
+Descargue o clone este repositorio
+
+Ejecute en terminal `npm install`
+
+Disfrute!

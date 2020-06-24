@@ -20,8 +20,11 @@ import imagemin from "gulp-imagemin"
 // Cache bust
 import cacheBust from 'gulp-cache-bust'
 
+// Plumber
+import plumber from 'gulp-plumber'
+
 // Browser Sync
-import { } from 'browser-sync'
+import { init as server, stream, reload } from 'browser-sync'
 
 // Constantes
 const cssPluginsProduction = [
@@ -37,6 +40,7 @@ const cssPluginsDevelopment = [
 gulp.task("html-production", () => {
     return gulp
         .src("./src/*.html")
+        .pipe(plumber())
         .pipe(htmlmin({
             collapseWhitespace: true, // false o borrar para que no minifique
             removeComments: true // false o borrar para dejar comentarios
@@ -50,6 +54,7 @@ gulp.task("html-production", () => {
 gulp.task("html-dev", () => {
     return gulp
         .src("./src/*.html")
+        .pipe(plumber())
         .pipe(cacheBust({
             type: 'timestamp'
         }))
@@ -60,18 +65,22 @@ gulp.task("html-dev", () => {
 // Production
 gulp.task("css-production", () => {
     return gulp
-        .src("./src/css/styles.css")
+        .src("./src/css/*.css")
+        .pipe(plumber())
         .pipe(concat("styles.min.css"))
         .pipe(postcss(cssPluginsProduction))
         .pipe(gulp.dest("./public/css"))
+        .pipe(stream())
 })
 // Development
 gulp.task("css-dev", () => {
     return gulp
-        .src("./src/css/styles.css")
+        .src("./src/css/*.css")
+        .pipe(plumber())
         .pipe(concat("styles.min.css"))
         .pipe(postcss(cssPluginsDevelopment))
         .pipe(gulp.dest("./public/css"))
+        .pipe(stream())
 })
 
 // JavaScript
@@ -79,6 +88,7 @@ gulp.task("css-dev", () => {
 gulp.task("scripts-production", () => {
     return gulp
         .src("./src/js/*.js")
+        .pipe(plumber())
         .pipe(concat("scripts.min.js"))
         .pipe(babel())
         .pipe(terser())
@@ -88,6 +98,7 @@ gulp.task("scripts-production", () => {
 gulp.task("scripts-dev", () => {
     return gulp
         .src("./src/js/*.js")
+        .pipe(plumber())
         .pipe(concat("scripts.min.js"))
         .pipe(babel())
         .pipe(terser())
@@ -99,6 +110,7 @@ gulp.task("scripts-dev", () => {
 gulp.task("images-production", () => {
     return gulp
         .src("src/assets/images/**/*")
+        .pipe(plumber())
         .pipe(imagemin([
             imagemin.gifsicle({ interlaced: true }),
             imagemin.mozjpeg({ quality: 75, progressive: true }),
@@ -116,10 +128,29 @@ gulp.task("images-production", () => {
 gulp.task("images-dev", () => {
     return gulp
         .src("src/assets/images/**/*")
+        .pipe(plumber())
         .pipe(gulp.dest("public/assets/images"))
 })
 
 // Watchers
-// gulp.task('production', () => {
-//     gulp.watch('')
-// })
+// Production
+gulp.task('production',
+    gulp.series(
+        gulp.parallel([
+            'html-production',
+            'css-production',
+            'scripts-production',
+            'images-production']
+        )
+    )
+)
+// Development
+gulp.task('dev', () => {
+    server({
+        server: './public'
+    })
+    gulp.watch('./src/*.html', gulp.series('html-dev')).on('change', reload)
+    gulp.watch('./src/css/*.css', gulp.series('css-dev'))
+    gulp.watch('./src/js/*.js', gulp.series('scripts-dev')).on('change', reload)
+    gulp.watch('./src/images/**/*', gulp.series('images-dev'))
+})
