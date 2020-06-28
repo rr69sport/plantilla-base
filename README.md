@@ -18,4 +18,6 @@ Descargue o clone este repositorio
 
 Ejecute en terminal `npm install`
 
+Ejecute en consola `gulp dev` para trabajar en desarrollo o `gulp production` para optimizar los archivos para producción
+
 Disfrute!
