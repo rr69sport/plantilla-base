@@ -54,6 +54,7 @@ gulp.task("html-dev", () => {
 // Production
 gulp.task('scss-production', () => {
     return gulp.src(('./src/scss/styles.scss'))
+        .pipe(plumber())
         .pipe(scss({
             outputStyle: "compressed"
         }))
@@ -62,6 +63,7 @@ gulp.task('scss-production', () => {
 // Development
 gulp.task('scss-dev', () => {
     return gulp.src(('./src/scss/styles.scss'))
+        .pipe(plumber())
         .pipe(scss({
             outputStyle: "expanded"
         }))
@@ -135,7 +137,7 @@ gulp.task('dev', () => {
         server: './public'
     })
     gulp.watch('./src/*.html', gulp.series('html-dev')).on('change', reload)
-    gulp.watch('./src/scss/**/*.scss', gulp.series('scss-dev'))
+    gulp.watch('./src/scss/**/*.scss', gulp.series('scss-dev')).on('change', reload)
     gulp.watch('./src/js/*.js', gulp.series('scripts-dev')).on('change', reload)
     gulp.watch('./src/images/**/*', gulp.series('images-dev'))
 })
