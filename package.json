@@ -1,6 +1,6 @@
 {
 	"name": "plantilla-base",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "plantilla básica para transpilar HTML, CSS y JavaScript usando Gulp 4",
 	"main": "src/index.html",
 	"scripts": {
