@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: red;
+}
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
