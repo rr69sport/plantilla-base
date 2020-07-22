@@ -102,6 +102,7 @@ gulp.task('production',
     gulp.series(
         gulp.parallel([
             'html-production',
+            'css-production',
             'scripts-production',
             'images-production']
         )
@@ -113,6 +114,7 @@ gulp.task('dev', () => {
         server: './public'
     })
     gulp.watch('./src/*.html', gulp.series('html-dev')).on('change', reload)
+    gulp.watch('./src/css/*.css', gulp.series('css-dev'))
     gulp.watch('./src/js/*.js', gulp.series('scripts-dev')).on('change', reload)
     gulp.watch('./src/images/**/*', gulp.series('images-dev'))
 })
