@@ -4,6 +4,9 @@ import gulp from "gulp"
 // HTML
 import htmlmin from "gulp-htmlmin"
 
+// SCSS
+import scss from "gulp-sass"
+
 // JavaScript
 import babel from "gulp-babel"
 import terser from "gulp-terser"
@@ -20,15 +23,6 @@ import plumber from 'gulp-plumber'
 
 // Browser Sync
 import { init as server, stream, reload } from 'browser-sync'
-
-// Constantes
-const cssPluginsProduction = [
-    cssnano(),
-    autoprefixer()
-]
-const cssPluginsDevelopment = [
-    autoprefixer()
-]
 
 // HTML
 // Production
@@ -54,6 +48,24 @@ gulp.task("html-dev", () => {
             type: 'timestamp'
         }))
         .pipe(gulp.dest("./public"))
+})
+
+// SCSS
+// Production
+gulp.task('scss-production', () => {
+    return gulp.src(('./src/scss/styles.scss'))
+        .pipe(scss({
+            outputStyle: "compressed"
+        }))
+        .pipe(gulp.dest('./public/css'))
+})
+// Development
+gulp.task('scss-dev', () => {
+    return gulp.src(('./src/scss/styles.scss'))
+        .pipe(scss({
+            outputStyle: "expanded"
+        }))
+        .pipe(gulp.dest('./public/css'))
 })
 
 // JavaScript
@@ -111,6 +123,7 @@ gulp.task('production',
     gulp.series(
         gulp.parallel([
             'html-production',
+            'scss-production',
             'scripts-production',
             'images-production']
         )
@@ -122,6 +135,7 @@ gulp.task('dev', () => {
         server: './public'
     })
     gulp.watch('./src/*.html', gulp.series('html-dev')).on('change', reload)
+    gulp.watch('./src/scss/**/*.scss', gulp.series('scss-dev'))
     gulp.watch('./src/js/*.js', gulp.series('scripts-dev')).on('change', reload)
     gulp.watch('./src/images/**/*', gulp.series('images-dev'))
 })
