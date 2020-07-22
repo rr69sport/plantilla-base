@@ -4,11 +4,6 @@ import gulp from "gulp"
 // HTML
 import htmlmin from "gulp-htmlmin"
 
-// CSS
-import cssnano from "cssnano"
-import postcss from "gulp-postcss"
-import autoprefixer from "autoprefixer"
-
 // JavaScript
 import babel from "gulp-babel"
 import terser from "gulp-terser"
@@ -59,28 +54,6 @@ gulp.task("html-dev", () => {
             type: 'timestamp'
         }))
         .pipe(gulp.dest("./public"))
-})
-
-// CSS
-// Production
-gulp.task("css-production", () => {
-    return gulp
-        .src("./src/css/*.css")
-        .pipe(plumber())
-        .pipe(concat("styles.min.css"))
-        .pipe(postcss(cssPluginsProduction))
-        .pipe(gulp.dest("./public/css"))
-        .pipe(stream())
-})
-// Development
-gulp.task("css-dev", () => {
-    return gulp
-        .src("./src/css/*.css")
-        .pipe(plumber())
-        .pipe(concat("styles.min.css"))
-        .pipe(postcss(cssPluginsDevelopment))
-        .pipe(gulp.dest("./public/css"))
-        .pipe(stream())
 })
 
 // JavaScript
@@ -138,7 +111,6 @@ gulp.task('production',
     gulp.series(
         gulp.parallel([
             'html-production',
-            'css-production',
             'scripts-production',
             'images-production']
         )
@@ -150,7 +122,6 @@ gulp.task('dev', () => {
         server: './public'
     })
     gulp.watch('./src/*.html', gulp.series('html-dev')).on('change', reload)
-    gulp.watch('./src/css/*.css', gulp.series('css-dev'))
     gulp.watch('./src/js/*.js', gulp.series('scripts-dev')).on('change', reload)
     gulp.watch('./src/images/**/*', gulp.series('images-dev'))
 })
