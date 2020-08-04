@@ -13,9 +13,9 @@ import postcss from "gulp-postcss"
 import autoprefixer from "autoprefixer"
 
 // JavaScript
-import babel from "gulp-babel"
-import terser from "gulp-terser"
-import concat from "gulp-concat"
+import browserify from 'browserify'
+import babelify from 'babelify'
+import source from 'vinyl-source-stream'
 
 // Imágenes
 import imagemin from "gulp-imagemin"
@@ -113,35 +113,31 @@ gulp.task('scss-docs', () => {
 })
 
 // JavaScript
-// Production
-gulp.task("scripts-production", () => {
-    return gulp
-        .src(["./src/js/*.js", "./src/js/**/*.js"])
-        .pipe(plumber())
-        .pipe(concat("scripts.min.js"))
-        .pipe(babel())
-        .pipe(terser())
-        .pipe(gulp.dest("./public/js"))
-})
-// Development
+// // Development
 gulp.task("scripts-dev", () => {
-    return gulp
-        .src(["./src/js/*.js", "./src/js/**/*.js"])
-        .pipe(plumber())
-        .pipe(concat("scripts.min.js"))
-        .pipe(babel())
-        .pipe(terser())
-        .pipe(gulp.dest("./public/js"))
+    return (
+        browserify({
+            entries: ['./src/js/scripts.js'],
+            transform: [babelify]
+        })
+            .bundle()
+            .pipe(plumber())
+            .pipe(source('scripts.min.js'))
+            .pipe(gulp.dest("./public/js"))
+    )
 })
-// Docs folder
+// // Docs folder
 gulp.task("scripts-docs", () => {
-    return gulp
-        .src(["./src/js/*.js", "./src/js/**/*.js"])
-        .pipe(plumber())
-        .pipe(concat("scripts.min.js"))
-        .pipe(babel())
-        .pipe(terser())
-        .pipe(gulp.dest("./docs/js"))
+    return (
+        browserify({
+            entries: ['./src/js/scripts.js'],
+            transform: [babelify]
+        })
+            .bundle()
+            .pipe(plumber())
+            .pipe(source('scripts.min.js'))
+            .pipe(gulp.dest("./docs/js"))
+    )
 })
 
 // Images
@@ -196,7 +192,7 @@ gulp.task('production',
         gulp.parallel([
             'pug-production',
             'scss-production',
-            'scripts-production',
+            'scripts-dev',
             'images-production']
         )
     )
