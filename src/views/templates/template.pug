@@ -1,0 +1,21 @@
+block config
+    include ../config/vars
+doctype html
+html(lang="en" prefix='og:http://ogp.me/ns/website#')
+    head
+        title= pageTitle
+        meta(charset="utf-8")
+        meta(name="viewport" content="initial-scale=1.0, width=device-width")
+
+        link(rel='stylesheet' href='./css/styles.css?t=1595822173097')
+
+        block SEO
+
+    body.body
+        header.main-header
+            h1.main-title= pageTitle
+            
+        main
+            block main
+    
+    script(type='module' src='./js/scripts.min.js')
