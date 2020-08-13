@@ -1,0 +1,20 @@
+{
+	"env": {
+		"browser": true,
+		"es2020": true
+	},
+	"extends": ["airbnb-base"],
+	"parserOptions": {
+		"ecmaVersion": 11,
+		"sourceType": "module"
+	},
+	"rules": {
+		"linebreak-style": "off",
+		"padded-blocks": "off",
+		"indent": "off",
+		"semi": "off",
+		"comma-dangle": "off",
+		"eol-last": "off",
+		"no-shadow": "off"
+	}
+}
