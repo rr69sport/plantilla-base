@@ -23,15 +23,15 @@
 		"maintained node versions"
 	],
 	"devDependencies": {
-		"@babel/core": "^7.11.0",
-		"@babel/preset-env": "^7.11.0",
-		"@babel/register": "^7.10.5",
+		"@babel/core": "^7.11.6",
+		"@babel/preset-env": "^7.11.5",
+		"@babel/register": "^7.11.5",
 		"autoprefixer": "^9.8.6",
 		"babelify": "^10.0.0",
 		"browser-sync": "^2.26.12",
 		"browserify": "^16.5.2",
 		"cssnano": "^4.1.10",
-		"eslint": "^7.6.0",
+		"eslint": "^7.9.0",
 		"eslint-config-airbnb-base": "^14.2.0",
 		"eslint-plugin-import": "^2.22.0",
 		"gulp": "^4.0.2",
@@ -43,6 +43,7 @@
 		"gulp-postcss": "^8.0.0",
 		"gulp-pug": "^4.0.1",
 		"gulp-sass": "^4.1.0",
+		"tinify": "^1.6.0-beta.2",
 		"vinyl-source-stream": "^2.0.0"
 	}
 }
