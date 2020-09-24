@@ -14,7 +14,7 @@ Utiliza Browser Sync para levantar un servidor de desarrollo en tiempo real.
 
 ## Cómo usarlo
 
-Descargue o clone este repositorio
+Descargue o clone este repositorio. También puede escribir en consola `npx degit ramsua/plantilla-base nombre-de-su-projecto` para clonarlo
 
 Ejecute en terminal `npm install`
 
