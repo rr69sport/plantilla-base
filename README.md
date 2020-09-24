@@ -18,6 +18,10 @@ Descargue o clone este repositorio
 
 Ejecute en terminal `npm install`
 
-Ejecute en consola `gulp dev` para trabajar en desarrollo o `gulp production` para optimizar los archivos para producción
+| comando | descripción |
+| ------- | ----------- |
+| `gulp dev` | para trabajar en desarrollo |
+| `gulp production` | para optimizar los archivos para producción |
+| `gulp docs` | para generar la carpeta docs para lives de github |
 
 Disfrute!
