@@ -1,2 +1,3 @@
-import { f } from "./modules/module";
-f()
+import { callAsyncFunction } from "./modules/module";
+
+callAsyncFunction()
