@@ -120,6 +120,7 @@ gulp.task("scripts-dev", () => {
             entries: ['./src/js/scripts.js'],
             transform: [babelify]
         })
+            .plugin('tinyify')
             .bundle()
             .pipe(plumber())
             .pipe(source('scripts.min.js'))
@@ -133,6 +134,7 @@ gulp.task("scripts-docs", () => {
             entries: ['./src/js/scripts.js'],
             transform: [babelify]
         })
+            .plugin('tinyify')
             .bundle()
             .pipe(plumber())
             .pipe(source('scripts.min.js'))
