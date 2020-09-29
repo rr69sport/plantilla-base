@@ -21,7 +21,7 @@ Ejecute en terminal `npm install`
 | comando | descripción |
 | ------- | ----------- |
 | `gulp dev` | para trabajar en desarrollo |
-| `gulp production` | para optimizar los archivos para producción |
-| `gulp docs` | para generar la carpeta docs para lives de github |
+| `gulp production` | optimiza los archivos para producción |
+| `gulp docs` | genera la carpeta docs para github pages |
 
 Disfrute!
