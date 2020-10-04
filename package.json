@@ -22,7 +22,7 @@
 		"not IE_Mob 11",
 		"maintained node versions"
 	],
-	"devDependencies": {
+	"dependencies": {
 		"@babel/core": "^7.11.6",
 		"@babel/preset-env": "^7.11.5",
 		"@babel/register": "^7.11.5",

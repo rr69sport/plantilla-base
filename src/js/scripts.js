@@ -1,3 +1,3 @@
-import { callAsyncFunction } from "./modules/module";
+import callAsyncFunction from './modules/module';
 
 callAsyncFunction()

@@ -16,15 +16,17 @@ import cacheBust from 'gulp-cache-bust'
  * @param {string} dest - ruta donde se deja el archivo final
  * @example pugTask("./src/views/pages/*.pug", false, "./public")
  */
-export const pugTask = (src, dev, dest) => {
+const pugTask = (src, dev, dest) => {
     gulp
         .src(src)
         .pipe(plumber())
         .pipe(pug({
-            pretty: dev ? true : false
+            pretty: !!dev
         }))
         .pipe(cacheBust({
             type: 'timestamp'
         }))
         .pipe(gulp.dest(dest))
 }
+
+export default pugTask

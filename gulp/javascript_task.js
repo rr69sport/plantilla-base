@@ -1,5 +1,5 @@
 // Gulp 4
-import gulp from "gulp"
+import gulp from 'gulp'
 
 // JavaScript
 import browserify from 'browserify'
@@ -10,13 +10,13 @@ import source from 'vinyl-source-stream'
 import plumber from 'gulp-plumber'
 
 /**
- * 
+ *
  * @param {string} src - archivos a vigilar
  * @param {string} nameFile - nombre del archivo compilado
  * @param {string} dest - destino del archivo final
  * @example jsTask(['./src/js/scripts.js'], "scripts.min.js", "./public/js")
  */
-export const jsTask = (src, nameFile, dest) => {
+const jsTask = (src, nameFile, dest) => {
     browserify({
         entries: src,
         transform: [babelify]
@@ -27,3 +27,4 @@ export const jsTask = (src, nameFile, dest) => {
         .pipe(source(nameFile))
         .pipe(gulp.dest(dest))
 }
+export default jsTask

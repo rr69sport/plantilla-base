@@ -1,8 +1,8 @@
 // Gulp 4
-import gulp from "gulp"
+import gulp from 'gulp'
 
 // Imágenes
-import imagemin from "gulp-imagemin"
+import imagemin from 'gulp-imagemin'
 
 // Plumber
 import plumber from 'gulp-plumber'

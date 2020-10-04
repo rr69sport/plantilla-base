@@ -10,4 +10,4 @@ const callAsyncFunction = async () => {
     console.log(result);
 }
 
-export { callAsyncFunction }
+export default callAsyncFunction

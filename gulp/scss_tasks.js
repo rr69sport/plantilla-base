@@ -1,13 +1,13 @@
 // Gulp 4
-import gulp from "gulp"
+import gulp from 'gulp'
 
 // SCSS
-import scss from "gulp-sass"
+import scss from 'gulp-sass'
 
 // CSS
-import cssnano from "cssnano"
-import postcss from "gulp-postcss"
-import autoprefixer from "autoprefixer"
+import cssnano from 'cssnano'
+import postcss from 'gulp-postcss'
+import autoprefixer from 'autoprefixer'
 
 // Plumber
 import plumber from 'gulp-plumber'
@@ -48,7 +48,7 @@ export const cssTask = (src, style, dest) => {
  * @param {string} src - archivos a vigilar
  * @param {string} style - estilo de compilación
  * @param {string} dest - destino del archivo final
- * @param {string} watching - archivos css para recargar el navegador (carpeta donde se compila el css)
+ * @param {string} watching - (carpeta donde se compila el css)
  * @example cssTaskDev("./src/scss/styles.scss", "expanded", "./public/css", "*.css")
  */
 export const cssTaskDev = (src, style, dest, watching) => {
@@ -59,6 +59,5 @@ export const cssTaskDev = (src, style, dest, watching) => {
         }))
         .pipe(postcss(cssPlugins))
         .pipe(gulp.dest(dest))
-        .pipe(stream({ match: watching })
-        )
+        .pipe(stream({ match: watching }))
 }
