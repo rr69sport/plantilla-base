@@ -1,184 +1,91 @@
 // Gulp 4
 import gulp from "gulp"
 
-// PUG
-// import pug from 'gulp-pug'
+// Pug
+import { pugTask } from "./gulp/pug_tasks"
 
-import pugTask from './gulp/pug_tasks'
+// Css
+import { cssTask, cssTaskDev } from "./gulp/scss_tasks"
 
-// SCSS
-import scss from "gulp-sass"
-
-// CSS
-import cssnano from "cssnano"
-import postcss from "gulp-postcss"
-import autoprefixer from "autoprefixer"
-
-// JavaScript
-import browserify from 'browserify'
-import babelify from 'babelify'
-import source from 'vinyl-source-stream'
-
-// Imágenes
-import imagemin from "gulp-imagemin"
-
-// Cache bust
-import cacheBust from 'gulp-cache-bust'
-
-// Plumber
-import plumber from 'gulp-plumber'
-
-// Browser Sync
-import { init as server, stream, reload } from 'browser-sync'
-
-// Constantes
-const cssPlugins = [
-    cssnano({
-        core: true,
-        zindex: false,
-        autoprefixer: {
-            add: true,
-            browsers: '> 1%, last 2 versions, Firefox ESR, Opera 12.1'
-        }
-    }),
-    autoprefixer()
-]
-
-gulp.task("pug-production", () => pugTask("./src/views/pages/*.pug", false, "./public"))
-
-gulp.task("pug-dev", () => pugTask("./src/views/pages/*.pug", true, "./public"))
-
-gulp.task("pug-docs", () => pugTask("./src/views/pages/*.pug", false, "./docs"))
-
-// SCSS
-// Production
-gulp.task('scss-production', () => {
-    return gulp.src(('./src/scss/styles.scss'))
-        .pipe(plumber())
-        .pipe(scss({
-            outputStyle: "compressed"
-        }))
-        .pipe(postcss(cssPlugins))
-        .pipe(gulp.dest('./public/css'))
-})
-// Development
-gulp.task('scss-dev', () => {
-    return gulp.src(('./src/scss/styles.scss'))
-        .pipe(plumber())
-        .pipe(scss({
-            outputStyle: "expanded"
-        }))
-        .pipe(postcss(cssPlugins))
-        .pipe(gulp.dest('./public/css'))
-        .pipe(stream({ match: "**/*.css" }))
-})
-// Docs folder
-gulp.task('scss-docs', () => {
-    return gulp.src(('./src/scss/styles.scss'))
-        .pipe(plumber())
-        .pipe(scss({
-            outputStyle: "compressed"
-        }))
-        .pipe(postcss(cssPlugins))
-        .pipe(gulp.dest('./docs/css'))
-})
-
-// JavaScript
-// // Development
-gulp.task("scripts-dev", () => {
-    return (
-        browserify({
-            entries: ['./src/js/scripts.js'],
-            transform: [babelify]
-        })
-            .plugin('tinyify')
-            .bundle()
-            .pipe(plumber())
-            .pipe(source('scripts.min.js'))
-            .pipe(gulp.dest("./public/js"))
-    )
-})
-// // Docs folder
-gulp.task("scripts-docs", () => {
-    return (
-        browserify({
-            entries: ['./src/js/scripts.js'],
-            transform: [babelify]
-        })
-            .plugin('tinyify')
-            .bundle()
-            .pipe(plumber())
-            .pipe(source('scripts.min.js'))
-            .pipe(gulp.dest("./docs/js"))
-    )
-})
+// Javascript
+import { jsTask } from "./gulp/javascript_task"
 
 // Images
-// Production
-gulp.task("images-production", () => {
-    return gulp
-        .src("src/assets/**/*")
-        .pipe(plumber())
-        .pipe(imagemin([
-            imagemin.gifsicle({ interlaced: true }),
-            imagemin.mozjpeg({ quality: 75, progressive: true }),
-            imagemin.optipng({ optimizationLevel: 5 }),
-            imagemin.svgo({
-                plugins: [
-                    { removeViewBox: true },
-                    { cleanupIDs: false }
-                ]
-            })
-        ]))
-        .pipe(gulp.dest("public/assets/"))
+import { imagesTask, imagesTaskDev } from "./gulp/images_min"
+
+// Browser Sync
+import { init as server, reload } from 'browser-sync'
+
+
+// PUG - production
+gulp.task("pug-production", async () => {
+    pugTask("./src/views/pages/*.pug", false, "./public")
 })
-// Development
-gulp.task("images-dev", () => {
-    return gulp
-        .src("src/assets/**/*")
-        .pipe(plumber())
-        .pipe(gulp.dest("public/assets/"))
+
+// PUG - docs folder
+gulp.task("pug-docs", async () => {
+    pugTask("./src/views/pages/*.pug", false, "./docs")
 })
-// Docs folder
-gulp.task("images-docs", () => {
-    return gulp
-        .src("src/assets/**/*")
-        .pipe(plumber())
-        .pipe(imagemin([
-            imagemin.gifsicle({ interlaced: true }),
-            imagemin.mozjpeg({ quality: 75, progressive: true }),
-            imagemin.optipng({ optimizationLevel: 5 }),
-            imagemin.svgo({
-                plugins: [
-                    { removeViewBox: true },
-                    { cleanupIDs: false }
-                ]
-            })
-        ]))
-        .pipe(gulp.dest("docs/assets/"))
+
+// PUG - dev mode
+gulp.task("pug-dev", async () => {
+    pugTask("./src/views/pages/*.pug", true, "./public")
+})
+
+
+// SCSS - production
+gulp.task("scss-production", async () => {
+    cssTask("./src/scss/styles.scss", "compressed", "./public/css")
+})
+
+// SCSS - docs folder
+gulp.task("scss-docs", async () => {
+    cssTask("./src/scss/styles.scss", "compressed", "./docs/css")
+})
+
+// SCSS - dev mode
+gulp.task("scss-dev", async () => {
+    cssTaskDev("./src/scss/styles.scss", "expanded", "./public/css", "**/*.css")
+})
+
+
+// JavaScript - dev mode
+gulp.task("scripts-dev", async () => {
+    jsTask(['./src/js/scripts.js'], "scripts.min.js", "./public/js")
+})
+
+// javascript - docs folder and production
+gulp.task("scripts-docs", async () => {
+    jsTask(['./src/js/scripts.js'], "scripts.min.js", "./docs/js")
+})
+
+
+// Images - dev mode
+gulp.task("images-dev", async () => {
+    imagesTaskDev("src/assets/**/*", "public/assets/")
+})
+
+// Images - production
+gulp.task("images-production", async () => {
+    imagesTask("src/assets/**/*", "public/assets/")
+})
+
+// Images - docs folder
+gulp.task("images-docs", async () => {
+    imagesTask("src/assets/**/*", "docs/assets/")
 })
 
 // Watchers
 // Production
 gulp.task('production',
     gulp.series(
-        gulp.parallel([
-            'pug-production',
-            'scss-production',
-            'scripts-dev',
-            'images-production']
-        )
+        gulp.parallel(['pug-production', 'scss-production', 'scripts-dev', 'images-production'])
     )
 )
 // Docs folder
 gulp.task('docs',
     gulp.series(
-        gulp.parallel([
-            'pug-docs',
-            'scss-docs',
-            'scripts-docs',
-            'images-docs']
-        )
+        gulp.parallel(['pug-docs', 'scss-docs', 'scripts-docs', 'images-docs'])
     )
 )
 // Development
