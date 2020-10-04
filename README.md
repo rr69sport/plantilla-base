@@ -25,3 +25,7 @@ Ejecute en terminal `npm install`
 | `gulp docs` | genera la carpeta docs para github pages |
 
 Disfrute!
+
+## Detalles
+
+Si al agregar una nueva imágen con el servidor levantado y no la compila a la carpeta final. Pare el servidor de desarrollo y ejecute en consola el comando `images-production` y vuelva a levantar el servidor de desarrollo.
