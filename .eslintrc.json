@@ -1,20 +1,28 @@
 {
-	"env": {
-		"browser": true,
-		"es2020": true
-	},
-	"extends": ["airbnb-base"],
-	"parserOptions": {
-		"ecmaVersion": 11,
-		"sourceType": "module"
-	},
-	"rules": {
-		"linebreak-style": "off",
-		"padded-blocks": "off",
-		"indent": "off",
-		"semi": "off",
-		"comma-dangle": "off",
-		"eol-last": "off",
-		"no-shadow": "off"
-	}
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "extends": ["airbnb-base"],
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": "off", // manipulated by editorconfig
+        "eol-last": "off",
+        "no-prototype-builtins": "off",
+        "editorconfig/editorconfig": "error",
+        "comma-dangle": ["error", "only-multiline"],
+        "no-multiple-empty-lines": ["error", { "max": 1 }],
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "padded-blocks": ["error", "always", { "allowSingleLineBlocks": true }],
+        "no-restricted-syntax": [
+            "error",
+            "FunctionExpression",
+            "WithStatement",
+            "BinaryExpression[operator='in']"
+        ]
+    },
+    "plugins": ["editorconfig"]
 }
