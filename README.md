@@ -1,5 +1,7 @@
 # Plantilla base
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/rr69sport/plantilla-base) ![GitHub repo size](https://img.shields.io/github/repo-size/rr69sport/plantilla-base)
+
 Una plantilla de HTML, CSS y JavaScript básica para proyectos de páginas estáticas.
 
 Usa Gulp en su versión 4 para ejecutar las tareas.
