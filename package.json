@@ -1,50 +1,50 @@
 {
-	"name": "plantilla-base",
-	"version": "3.0.0",
-	"description": "Boilerplate para compilar HTML usando PUG, CSS usando SASS y JavaScript, administrado con Gulp 4",
-	"main": "src/index.html",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ramsua/plantilla-base.git"
-	},
-	"author": "RAMSUA",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/ramsua/plantilla-base/issues"
-	},
-	"homepage": "https://github.com/ramsua/plantilla-base#readme",
-	"browserslist": [
-		"defaults",
-		"not IE 11",
-		"not IE_Mob 11",
-		"maintained node versions"
-	],
-	"dependencies": {
-		"@babel/core": "^7.12.3",
-		"@babel/preset-env": "^7.12.1",
-		"@babel/register": "^7.12.1",
-		"autoprefixer": "^10.0.1",
-		"babelify": "^10.0.0",
-		"browser-sync": "^2.26.13",
-		"browserify": "^17.0.0",
-		"cssnano": "^4.1.10",
-		"eslint": "^7.12.1",
-		"eslint-config-airbnb-base": "^14.2.0",
-		"eslint-plugin-import": "^2.22.1",
-		"gulp": "^4.0.2",
-		"gulp-babel": "^8.0.0",
-		"gulp-cache-bust": "^1.4.1",
-		"gulp-htmlmin": "^5.0.1",
-		"gulp-imagemin": "^7.1.0",
-		"gulp-plumber": "^1.2.1",
-		"gulp-postcss": "^9.0.0",
-		"gulp-pug": "^4.0.1",
-		"gulp-sass": "^4.1.0",
-		"postcss": "^8.1.4",
-		"tinyify": "^3.0.0",
-		"vinyl-source-stream": "^2.0.0"
-	}
+    "name": "plantilla-base",
+    "version": "3.0.0",
+    "description": "Boilerplate para compilar HTML usando PUG, CSS usando SASS y JavaScript, administrado con Gulp 4",
+    "main": "src/index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rr69sport/plantilla-base.git"
+    },
+    "author": "rr69sport",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rr69sport/plantilla-base/issues"
+    },
+    "homepage": "https://github.com/rr69sport/plantilla-base#readme",
+    "browserslist": [
+        "defaults",
+        "not IE 11",
+        "not IE_Mob 11",
+        "maintained node versions"
+    ],
+    "dependencies": {
+        "@babel/core": "^7.12.3",
+        "@babel/preset-env": "^7.12.1",
+        "@babel/register": "^7.12.1",
+        "autoprefixer": "^10.0.1",
+        "babelify": "^10.0.0",
+        "browser-sync": "^2.26.13",
+        "browserify": "^17.0.0",
+        "cssnano": "^4.1.10",
+        "eslint": "^7.12.1",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-plugin-import": "^2.22.1",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0",
+        "gulp-cache-bust": "^1.4.1",
+        "gulp-htmlmin": "^5.0.1",
+        "gulp-imagemin": "^7.1.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-postcss": "^9.0.0",
+        "gulp-pug": "^4.0.1",
+        "gulp-sass": "^4.1.0",
+        "postcss": "^8.1.4",
+        "tinyify": "^3.0.0",
+        "vinyl-source-stream": "^2.0.0"
+    }
 }
