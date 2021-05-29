@@ -1,6 +1,10 @@
+/**
+ * Todo esto lo puede borarr, solo es código de prueba :)
+ */
+
 const asyncFunction = async () => new Promise((resolve) => {
     setTimeout(() => {
-        resolve('funciona');
+        resolve('funcionando');
     }, 2000);
 })
 
