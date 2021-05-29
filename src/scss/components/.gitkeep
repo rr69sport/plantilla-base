@@ -1,0 +1,8 @@
+# En esta carpeta irán los archivos como:
+# _buttons.scss
+# _menu.scss
+# _slider.scss
+
+# Todo aquello que sea un bloque que se repita a lo largo de todo el sitio
+
+# Git borra las carpetas vacías, por eso existe este archivo, puedes borrarlo cuando quieras si ya tienes archivos *.scss en esta carpeta

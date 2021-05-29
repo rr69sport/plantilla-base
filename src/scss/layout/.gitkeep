@@ -1,0 +1,9 @@
+# En esta carpeta irán los archivos como:
+# _header.scss
+# _main-content.scss
+# _aside.scss
+# _footer.scss
+
+# Todo aquello que sea un bloque que se repita a lo largo de todo el sitio
+
+# Git borra las carpetas vacías, por eso existe este archivo, puedes borrarlo cuando quieras si ya tienes archivos *.scss en esta carpeta

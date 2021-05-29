@@ -8,27 +8,27 @@ Transpila el HTML, el CSS y el JavaScript para que sea posible trabajar en una c
 
 También optimiza imágenes JPG, JPEG, GIF, PNG y SVG
 
-Utiliza Browser Sync para levantar un servidor de desarrollo en tiempo real.
+Utiliza [Browser Sync](https://browsersync.io/docs/gulp) para levantar un servidor de desarrollo en tiempo real.
 
 ***
 
 ## Cómo usarlo
 
-Descargue o clone este repositorio. También puede escribir en consola `npx degit ramsua/plantilla-base nombre-de-su-projecto` para clonarlo
+Descargue o clone este repositorio. También puede escribir en consola `npx degit rr69sport/plantilla-base nombre-de-su-projecto` para clonarlo desde este repositorio. Si lo clona puede hacer lo mismo pero cambiando el nombre del perfil por el suyo `npx degit <su perfil de github>/plantilla-base nombre-de-su-projecto`
 
 Ejecute en terminal `npm install`
 
-| comando | descripción |
-| ------- | ----------- |
-| `gulp dev` | para trabajar en desarrollo |
-| `gulp production` | optimiza los archivos para producción |
-| `gulp docs` | genera la carpeta docs para github pages |
+| comando           | descripción                              |
+| ----------------- | ---------------------------------------- |
+| `gulp dev`        | para trabajar en desarrollo              |
+| `gulp production` | optimiza los archivos para producción    |
+| `gulp docs`       | genera la carpeta docs para github pages |
 
 Disfrute!
 
 ## Detalles
 
-Si al agregar una nueva imágen con el servidor levantado y no la compila a la carpeta final. Pare el servidor de desarrollo y ejecute en consola el comando `images-production` y vuelva a levantar el servidor de desarrollo.
+Si al agregar una nueva imágen con el servidor levantado y no la compila a la carpeta final. Pare el servidor de desarrollo con `Crtl C` y ejecute en consola el comando `images-production` y vuelva a levantar el servidor de desarrollo.
 
 ### Assets
 
