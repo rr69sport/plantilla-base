@@ -2,7 +2,7 @@
 import gulp from 'gulp'
 
 // SCSS
-import scss from 'gulp-sass'
+import scss from 'gulp-dart-sass'
 
 // CSS
 import cssnano from 'cssnano'
@@ -39,7 +39,7 @@ export const cssTask = (src, style, dest) => {
         .pipe(plumber())
         .pipe(scss({
             outputStyle: style
-        }))
+        }).on('error', scss.logError))
         .pipe(postcss(cssPlugins))
         .pipe(gulp.dest(dest))
 }
@@ -56,7 +56,7 @@ export const cssTaskDev = (src, style, dest, watching) => {
         .pipe(plumber())
         .pipe(scss({
             outputStyle: style
-        }))
+        }).on('error', scss.logError))
         .pipe(postcss(cssPlugins))
         .pipe(gulp.dest(dest))
         .pipe(stream({ match: watching }))
