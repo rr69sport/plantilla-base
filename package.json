@@ -22,7 +22,7 @@
         "not IE_Mob 11",
         "maintained node versions"
     ],
-    "dependencies": {
+    "devDependencies": {
         "@babel/core": "^7.12.3",
         "@babel/preset-env": "^7.12.1",
         "@babel/register": "^7.12.1",
@@ -30,7 +30,8 @@
         "babelify": "^10.0.0",
         "browser-sync": "^2.26.13",
         "browserify": "^17.0.0",
-        "cssnano": "^4.1.10",
+        "core-js": "^3.13.0",
+        "cssnano": "^5.0.4",
         "eslint": "^7.12.1",
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-plugin-import": "^2.22.1",
@@ -46,5 +47,8 @@
         "postcss": "^8.1.4",
         "tinyify": "^3.0.0",
         "vinyl-source-stream": "^2.0.0"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.14.0"
     }
 }
