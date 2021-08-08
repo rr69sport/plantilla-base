@@ -14,7 +14,7 @@ Utiliza [Browser Sync](https://browsersync.io/docs/gulp) para levantar un servid
 
 ## Cómo usarlo
 
-Descargue o clone este repositorio. También puede escribir en consola `npx degit rr69sport/plantilla-base nombre-de-su-projecto` para clonarlo desde este repositorio. Si lo clona puede hacer lo mismo pero cambiando el nombre del perfil por el suyo `npx degit <su perfil de github>/plantilla-base nombre-de-su-projecto`
+Descargue o clone este repositorio. También puede escribir en consola `npx degit rr69sport/plantilla-base nombre-de-su-projecto` para clonarlo desde este repositorio. Si lo clona puede hacer lo mismo pero cambiando el nombre del perfil por el suyo `npx degit <su perfil de github>/plantilla-base nombre-de-su-projecto` **IMPORTANTE:** *Debe declarar como `template` su repositorio.*
 
 Ejecute en terminal `npm install`
 
