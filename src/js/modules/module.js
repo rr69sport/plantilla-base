@@ -1,5 +1,5 @@
 /**
- * Todo esto lo puede borar, solo es código de prueba :)
+ * Todo esto lo puede borrar, solo es código de prueba :)
  */
 
 const asyncFunction = async () => new Promise((resolve) => {
